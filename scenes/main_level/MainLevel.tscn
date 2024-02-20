@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/StonePlatform.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/BlueShip.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/PlatformBlue.gd" type="Script" id=3]
-[ext_resource path="res://scenes/ObjectiveArea.gd" type="Script" id=4]
+[ext_resource path="res://scenes/main_level/StonePlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main_level/BlueShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/main_level/PlatformBlue.gd" type="Script" id=3]
+[ext_resource path="res://scenes/main_level/ObjectiveArea.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69.375, 39.5 )
@@ -20,6 +20,7 @@ script = ExtResource( 3 )
 position = Vector2( 70, 0 )
 
 [node name="BlueShip" parent="." instance=ExtResource( 2 )]
+position = Vector2( 70, 351 )
 
 [node name="ObjectiveArea" type="Area2D" parent="."]
 script = ExtResource( 4 )
