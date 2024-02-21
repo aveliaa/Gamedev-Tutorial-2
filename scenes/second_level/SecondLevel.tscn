@@ -6,9 +6,13 @@
 [ext_resource path="res://scenes/second_level/ObjectiveArea2.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56, 39.5 )
+extents = Vector2( 41, 23.5 )
 
 [node name="SecondLevel" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 302.0 ],
+"_edit_vertical_guides_": [ 499.0 ]
+}
 
 [node name="PlatformGreen" type="Node2D" parent="."]
 position = Vector2( 80, 564 )
@@ -28,7 +32,16 @@ position = Vector2( 946, 47 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea2"]
-position = Vector2( 2, 0.5 )
+position = Vector2( 17, -15.5 )
 shape = SubResource( 1 )
+
+[node name="MyLabel" type="Label" parent="ObjectiveArea2"]
+margin_left = -479.0
+margin_top = 248.0
+margin_right = -431.0
+margin_bottom = 262.0
+text = "LEVEL 2"
+align = 1
+valign = 1
 
 [connection signal="body_shape_entered" from="ObjectiveArea2" to="ObjectiveArea2" method="_on_ObjectiveArea2_body_shape_entered"]
