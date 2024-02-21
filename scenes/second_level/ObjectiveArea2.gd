@@ -8,3 +8,6 @@ func _on_ObjectiveArea2_body_entered(body):
 		
 		var myNotify = get_node("MyLabel")
 		myNotify.text = "Congratulations!\nYou Have Finished The Game!"
+		
+		yield(get_tree().create_timer(2), "timeout")
+		get_tree().change_scene("res://scenes/end.tscn")
