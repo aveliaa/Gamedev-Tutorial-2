@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/second_level/GreenShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/second_level/SnowPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/second_level/PlatformGreen.gd" type="Script" id=3]
 [ext_resource path="res://scenes/second_level/ObjectiveArea2.gd" type="Script" id=4]
+[ext_resource path="res://assets/bg2.png" type="Texture" id=5]
+[ext_resource path="res://assets/ferret.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 41, 23.5 )
+extents = Vector2( 47.5, 40 )
 
 [node name="SecondLevel" type="Node"]
 __meta__ = {
@@ -32,16 +34,31 @@ position = Vector2( 946, 47 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea2"]
-position = Vector2( 17, -15.5 )
+position = Vector2( 10.5, 1 )
 shape = SubResource( 1 )
 
 [node name="MyLabel" type="Label" parent="ObjectiveArea2"]
-margin_left = -479.0
-margin_top = 248.0
-margin_right = -431.0
-margin_bottom = 262.0
-text = "LEVEL 2"
+margin_left = -656.0
+margin_top = 249.0
+margin_right = -238.0
+margin_bottom = 263.0
+text = "Hero's Mission:
+Save The Ferret!"
 align = 1
 valign = 1
 
-[connection signal="body_shape_entered" from="ObjectiveArea2" to="ObjectiveArea2" method="_on_ObjectiveArea2_body_shape_entered"]
+[node name="ferret" type="Sprite" parent="ObjectiveArea2"]
+position = Vector2( 10, 2.5 )
+scale = Vector2( 0.241379, 0.197917 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 506.567, 322.5 )
+scale = Vector2( 1.00866, 0.629883 )
+texture = ExtResource( 5 )
+
+[connection signal="body_entered" from="ObjectiveArea2" to="ObjectiveArea2" method="_on_ObjectiveArea2_body_entered"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/main_level/StonePlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main_level/BlueShip.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/main_level/PlatformBlue.gd" type="Script" id=3]
 [ext_resource path="res://scenes/main_level/ObjectiveArea.gd" type="Script" id=4]
+[ext_resource path="res://assets/bg1.png" type="Texture" id=5]
+[ext_resource path="res://assets/bunny.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69.375, 39.5 )
@@ -31,8 +33,14 @@ margin_left = 447.0
 margin_top = 308.0
 margin_right = 557.92
 margin_bottom = 322.0
-text = "LEVEL 1"
+text = "Hero's Mission:
+Save The Bunny!"
 align = 1
+
+[node name="bunny" type="Sprite" parent="ObjectiveArea"]
+position = Vector2( 71, 42 )
+scale = Vector2( 0.173611, 0.167339 )
+texture = ExtResource( 6 )
 
 [node name="PlatformBlue" type="Node2D" parent="."]
 position = Vector2( 35, 565 )
@@ -42,5 +50,14 @@ script = ExtResource( 3 )
 
 [node name="StonePlatform2" parent="PlatformBlue" instance=ExtResource( 1 )]
 position = Vector2( 70, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 515.822, 305.125 )
+scale = Vector2( 1.02183, 0.618896 )
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]

@@ -1,5 +1,10 @@
 extends Area2D
 
-func _on_ObjectiveArea2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var myNotify = get_node("MyLabel")
-	myNotify.text = "Level Completed!\nCongratulations, You Finished The Game!"
+
+func _on_ObjectiveArea2_body_entered(body):
+	if (body.name == "GreenShip"):
+		var ferret = get_node("ferret")
+		ferret.visible = false
+		
+		var myNotify = get_node("MyLabel")
+		myNotify.text = "Congratulations!\nYou Have Finished The Game!"
