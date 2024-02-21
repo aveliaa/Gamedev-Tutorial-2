@@ -39,10 +39,10 @@ Silakan baca referensi yang tersedia untuk belajar bagaimana caranya untuk membu
 
 Pada level baru ini, diharapkan kamu dapat membuat:<br>
 
-[x]  Objek pesawat baru.<br>
-[x]  Objek landasan baru.<br>
-[x]  Desain level yang berbeda dari level awal dengan menempatkan  `ObjectiveArea`  di pojok kanan atas atau pojok kana bawah area permainan di level baru.<br>
-[x]  Silakan berkreasi jika ingin memoles level awal maupun level baru. Beberapa ide  _polishing_:<br>
+[x] Objek pesawat baru.<br>
+[x] Objek landasan baru.<br>
+[x] Desain level yang berbeda dari level awal dengan menempatkan  `ObjectiveArea`  di pojok kanan atas atau pojok kana bawah area permainan di level baru.<br>
+[x] Silakan berkreasi jika ingin memoles level awal maupun level baru. Beberapa ide  _polishing_:<br>
 -  [x] Implementasi reset kondisi level ketika pesawatnya jatuh ke luar area permainan. [saya membuat game over, ulang ke lv1]<br>
 -  [x] Implementasi transisi level awal ke level baru ketika pemain berhasil mencapai  `ObjectiveArea`. Misalnya menampilkan pesan kemenangan sesaat sebelum pindah level. [pesan di tengah berubah]<br>
 -  [x] Menambahkan gambar latar.<br>
