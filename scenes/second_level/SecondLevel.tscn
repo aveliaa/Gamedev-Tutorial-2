@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/second_level/GreenShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/second_level/SnowPlatform.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/ferret.png" type="Texture" id=6]
 [ext_resource path="res://scenes/second_level/GameOver2.gd" type="Script" id=7]
 [ext_resource path="res://assets/FASTER2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/error-sound-39539.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/yay-6120.mp3" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 47.5, 40 )
@@ -73,9 +75,15 @@ script = ExtResource( 7 )
 position = Vector2( 509, 662 )
 shape = SubResource( 2 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="Success" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
 
 [connection signal="body_entered" from="ObjectiveArea2" to="ObjectiveArea2" method="_on_ObjectiveArea2_body_entered"]
 [connection signal="body_entered" from="GameOver" to="GameOver" method="_on_GameOver_body_entered"]

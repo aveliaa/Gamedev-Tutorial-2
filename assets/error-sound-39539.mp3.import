@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/error-sound-39539.mp3-88c454ffd84c0785977f3df6df56f09c.mp3str"
+
+[deps]
+
+source_file="res://assets/error-sound-39539.mp3"
+dest_files=[ "res://.import/error-sound-39539.mp3-88c454ffd84c0785977f3df6df56f09c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
