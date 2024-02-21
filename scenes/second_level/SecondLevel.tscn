@@ -105,7 +105,7 @@ curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Meteor/Path2D"]
 position = Vector2( 862, -109 )
-rotation = 0.365345
+rotation = -1.13274
 
 [node name="Sprite" type="Sprite" parent="Meteor/Path2D/PathFollow2D"]
 position = Vector2( 69.5347, 19.4403 )

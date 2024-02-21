@@ -30,7 +30,7 @@ position = Vector2( 70, 351 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
-position = Vector2( 70.625, 40 )
+position = Vector2( 507.375, 59.75 )
 shape = SubResource( 1 )
 
 [node name="MyLabel" type="Label" parent="ObjectiveArea"]
@@ -45,7 +45,7 @@ Save The Bunny!"
 align = 1
 
 [node name="bunny" type="Sprite" parent="ObjectiveArea"]
-position = Vector2( 71, 42 )
+position = Vector2( 507.75, 61.75 )
 scale = Vector2( 0.173611, 0.167339 )
 texture = ExtResource( 6 )
 
@@ -63,7 +63,7 @@ position = Vector2( 70, 0 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 515.822, 305.125 )
+position = Vector2( 516, 305 )
 scale = Vector2( 1.02183, 0.618896 )
 texture = ExtResource( 5 )
 
