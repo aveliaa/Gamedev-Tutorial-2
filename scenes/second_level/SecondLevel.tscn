@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/second_level/GreenShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/second_level/SnowPlatform.tscn" type="PackedScene" id=2]
@@ -10,12 +10,22 @@
 [ext_resource path="res://assets/FASTER2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" type="AudioStream" id=8]
 [ext_resource path="res://assets/error-sound-39539.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/yay-6120.mp3" type="AudioStream" id=10]
+[ext_resource path="res://scenes/second_level/Meteor.gd" type="Script" id=11]
+[ext_resource path="res://assets/meteorBrown_big1.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 47.5, 40 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 517.75, 10 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 862, -109, 0.594603, 23.1895, -0.594603, -23.1895, 875, -159, 0, 0, 0, 0, 1099, -136, -2.35969, -4.24743, 2.35969, 4.24743, 806, 72, 0, 0, 0, 0, 616, -351, 0, 0, 0, 0, 447, 372, 0, 0, 0, 0, 857, -99, 0, 0, 0, 0, 862, -109 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 37.5622, 30.4801 )
 
 [node name="SecondLevel" type="Node"]
 __meta__ = {
@@ -83,7 +93,31 @@ autoplay = true
 stream = ExtResource( 10 )
 
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1, 5 )
 stream = ExtResource( 9 )
+
+[node name="Meteor" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="Path2D" type="Path2D" parent="Meteor"]
+position = Vector2( -172, 328 )
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Meteor/Path2D"]
+position = Vector2( 862, -109 )
+rotation = 0.365345
+
+[node name="Sprite" type="Sprite" parent="Meteor/Path2D/PathFollow2D"]
+position = Vector2( 69.5347, 19.4403 )
+texture = ExtResource( 12 )
+
+[node name="Meteor" type="Area2D" parent="Meteor/Path2D/PathFollow2D/Sprite"]
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meteor/Path2D/PathFollow2D/Sprite/Meteor"]
+position = Vector2( -0.93396, 0.357269 )
+shape = SubResource( 4 )
 
 [connection signal="body_entered" from="ObjectiveArea2" to="ObjectiveArea2" method="_on_ObjectiveArea2_body_entered"]
 [connection signal="body_entered" from="GameOver" to="GameOver" method="_on_GameOver_body_entered"]
+[connection signal="body_entered" from="Meteor/Path2D/PathFollow2D/Sprite/Meteor" to="Meteor/Path2D/PathFollow2D/Sprite/Meteor" method="_on_Meteor_body_entered"]
